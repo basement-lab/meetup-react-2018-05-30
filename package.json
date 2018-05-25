@@ -1,0 +1,56 @@
+{
+    "name": "whats-new-in-react16",
+    "version": "0.1.0",
+    "description": "What's new in React 16.3+, for ReactJS Utah Meetup May 30, 2018",
+    "homepage": "https://www.meetup.com/ReactJS-Utah/events/250815359/",
+    "license": "MIT",
+    "private": true,
+    "author": {
+        "name": "Derek Clair",
+        "email": "derek@derekclair.com",
+        "url": "https://github.com/derekclair"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/derekclair/demo_whats-new-in-react16.git"
+    },
+    "scripts": {
+        "reset": "yarn reset:slides && yarn reset:examples",
+        "reset:examples": "rm -rf examples/*/node_modules examples/*/yarn.lock",
+        "reset:root": "rm -rf node_modules yarn.lock",
+        "reset:slides": "cd slides && rm -rf node_modules yarn.lock",
+        "start": "cd slides && yarn start"
+    },
+    "engines": {
+        "yarn": ">=1.5"
+    },
+    "workspaces": [
+        "slides",
+        "examples/new-context",
+        "examples/old-context"
+    ],
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^8.2.3",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^4.19.1",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-plugin-babel": "^5.0.0",
+        "eslint-plugin-import": "^2.11.0",
+        "eslint-plugin-jest": "^21.15.0",
+        "eslint-plugin-jsx-a11y": "^6.0.3",
+        "eslint-plugin-prettier": "^2.6.0",
+        "eslint-plugin-react": "^7.7.0",
+        "prettier": "^1.12.1",
+        "prettier-eslint": "^8.8.1",
+        "prettier-stylelint": "^0.4.2",
+        "stylelint": "^9.2.x",
+        "stylelint-config-prettier": "^3.2.x",
+        "stylelint-config-recommended": "^2.1.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-custom-processor-loader": "^0.5.0",
+        "webpack": "^4.8.3"
+    }
+}
