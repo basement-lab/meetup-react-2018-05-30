@@ -1,4 +1,5 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const path = require('path');
 const webpack = require('webpack');
@@ -25,6 +26,10 @@ module.exports = {
       clearConsole: true,
     }),
 
+    new StyleLintPlugin({
+      lintDirtyModulesOnly: true,
+    }),
+
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
@@ -39,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        use: [{ loader: 'babel-loader' }],
+        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
         include: __dirname,
         exclude: /node_modules/,
       },

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
@@ -23,6 +25,7 @@ app.use(
     clientLogLevel:
       'none' /* 'none' | 'warning' | 'error' | 'info' (default) */,
     compress: true,
+    // historyApiFallback: true,
     hot: true,
     overlay: {
       errors: true,
@@ -52,7 +55,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () =>
-  // eslint-disable-next-line no-console
   console.log(
     `${blue('WEB-SERVER')}:`,
     dim('is serving to'),

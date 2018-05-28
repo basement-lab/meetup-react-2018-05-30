@@ -5,7 +5,11 @@
     "react",
     "env"
   ],
-  "plugins": ["react-hot-loader/babel", "transform-decorators-legacy"],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-decorators-legacy",
+    "transform-class-properties"
+  ],
   "env": {
     "production": {
       "plugins": [
