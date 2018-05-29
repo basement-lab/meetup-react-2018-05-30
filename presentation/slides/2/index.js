@@ -11,7 +11,7 @@ export default (
     data-id="react-fiber"
     id={2}
     goTo={3}
-    transition={[
+    transitionIn={[
       'fade',
       (transitioning, forward) => {
         const angle = forward ? -180 : 180;
@@ -22,6 +22,20 @@ export default (
             rotate(${transitioning ? angle : 0}deg)
           `,
           backgroundColor: transitioning ? tertiary : white,
+        };
+      },
+    ]}
+    transitionOut={[
+      'fade',
+      (transitioning, forward) => {
+        const angle = forward ? -180 : 180;
+
+        return {
+          transform: `
+            translate3d(0%, ${transitioning ? 100 : 0}%, 0)
+            rotate(${transitioning ? angle : 0}deg)
+          `,
+          backgroundColor: white,
         };
       },
     ]}

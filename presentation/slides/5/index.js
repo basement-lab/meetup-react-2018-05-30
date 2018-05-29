@@ -24,6 +24,10 @@ export default (
     controlColor={tertiary}
     progressColor={tertiary}
   >
+    <Notes>
+      I believe that Fiber is the foundational to the upcoming asynchronous
+      rendering in React.
+    </Notes>
     <Image src={images.reactUnderTheHood.replace('/', '')} />
 
     <Link
