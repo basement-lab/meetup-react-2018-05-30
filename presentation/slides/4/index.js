@@ -1,30 +1,34 @@
 import React from 'react';
-import { Appear, Heading, Slide } from 'spectacle';
+import { Appear, Heading, Image, Notes, Slide } from 'spectacle';
 
-import images from '../images';
+import { tertiary, gray, white } from '../theme';
 
 /** ************************************************************************* */
 
 export default (
   <Slide
+    data-id="react-fiber-is"
+    id={4}
+    goTo={5}
+    bgColor={tertiary}
     transition={['slide']}
-    bgImage={images.city.replace('/', '')}
-    bgDarken={0.75}
+    controlColor={gray}
+    progressColor={gray}
   >
-    <Appear fid="1">
-      <Heading size={1} caps fit textColor="primary">
-        Full Width
-      </Heading>
-    </Appear>
-    <Appear fid="2">
-      <Heading size={1} caps fit textColor="tertiary">
-        Adjustable Darkness
-      </Heading>
-    </Appear>
-    <Appear fid="3">
-      <Heading size={1} caps fit textColor="primary">
-        Background Imagery
-      </Heading>
-    </Appear>
+    <Notes>
+      Not that the previous reconciliation algorithm wasn&apos;t, but just
+      sayn&apos;
+    </Notes>
+    <Heading margin="1em 0 0 0" size={1} textColor={white}>
+      a
+    </Heading>
+
+    <Heading fit italic size={1} textColor={white}>
+      hella&apos; gnarly
+    </Heading>
+
+    <Heading fill margin="2em 0 0 0" size={1} textColor={white}>
+      reconciliation algorithm
+    </Heading>
   </Slide>
 );

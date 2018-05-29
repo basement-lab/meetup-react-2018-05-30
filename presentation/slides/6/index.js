@@ -1,41 +1,80 @@
 import React from 'react';
-import { GoToAction, Heading, Slide } from 'spectacle';
+import {
+  Heading,
+  Link,
+  List,
+  ListItem,
+  Notes,
+  Slide,
+  SlideSet,
+  Text,
+  Typeface,
+} from 'spectacle';
+import styled from 'react-emotion';
 
-import theme from '../theme';
+import { secondary, tertiary, grayDark, white } from '../theme';
 
 /** ************************************************************************* */
 
+const Container = styled('div')`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  > div {
+    max-width: 1200px;
+  }
+`;
+
 export default (
-  <Slide>
-    <Heading size={2} textColor="secondary" margin="0.25em">
-      Mix it up!
+  <Slide
+    data-id="under-the-hood-react"
+    id={6}
+    goTo={7}
+    transition={['fade']}
+    bgColor={grayDark}
+    controlColor={secondary}
+    progressColor={white}
+  >
+    <Notes>additional LIGHT reading</Notes>
+
+    <Heading size={2} textColor={tertiary}>
+      More on React Fiber
     </Heading>
-    <Heading size={6} textColor="tertiary">
-      You can even jump to different slides with a standard button or custom
-      component!
-    </Heading>
-    <GoToAction margin="1em" slide={8}>
-      Jump to Slide 8
-    </GoToAction>
-    <GoToAction
-      render={goToSlide => (
-        <select
-          defaultValue=""
-          style={{
-            background: '#000',
-            color: '#fff',
-            fontFamily: theme.print.fonts.primary,
-            fontSize: '1.1em',
-          }}
-          onChange={({ target }) => goToSlide(target.value)}
-        >
-          <option value="" disabled>
-            Custom Slide Picker
-          </option>
-          <option value="wait-what">Wait What!? Slide</option>
-          <option value={3}>Slide 3</option>
-        </select>
-      )}
-    />
+    <Container>
+      <div>
+        <List type="A" textSize="2em">
+          <ListItem
+            margin="0.5em"
+            href="https://www.youtube.com/watch?v=ZCuYPiUIONs"
+            textColor={white}
+            textSize="1em"
+          >
+            [YouTube] Lin Clark - A Cartoon Intro to Fiber - React Conf 2017
+            <Text margin="0 3em" textColor={white} textSize="0.5em">
+              ⭐️️️️️ ⭐️ ⭐
+            </Text>
+          </ListItem>
+
+          <ListItem
+            margin="0.5em"
+            href="https://www.slideshare.net/sabativi/react-fiber"
+            textColor={white}
+            textSize="1em"
+          >
+            [Slideshare] sabativi - react-fiber
+          </ListItem>
+
+          <ListItem
+            margin="0.5em"
+            href="https://github.com/acdlite/react-fiber-architecture"
+            textColor={white}
+            textSize="1em"
+          >
+            github.com/acdlite/react-fiber-architecture
+          </ListItem>
+        </List>
+      </div>
+    </Container>
   </Slide>
 );

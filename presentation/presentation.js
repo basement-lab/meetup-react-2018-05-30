@@ -16,13 +16,17 @@ export default class Presentation extends Component {
   render() {
     return (
       <Deck
+        contentHeight="90%"
+        contentWidth="90%"
         transition={['zoom', 'slide']}
         theme={theme}
         transitionDuration={500}
       >
         {slides.length ? (
           slides.map((slide, key) => {
-            return React.cloneElement(slide, { key });
+            return React.cloneElement(slide, {
+              key,
+            });
           })
         ) : (
           <Slide />

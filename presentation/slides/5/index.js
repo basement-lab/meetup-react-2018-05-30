@@ -1,59 +1,53 @@
 import React from 'react';
-import { Anim, Heading, Slide } from 'spectacle';
+import {
+  Heading,
+  Image,
+  Layout,
+  Link,
+  Notes,
+  Slide,
+  Text,
+  Typeface,
+} from 'spectacle';
+
+import images from '../images';
+import { secondary, tertiary, gray } from '../theme';
 
 /** ************************************************************************* */
 
 export default (
-  <Slide transition={['slide']}>
-    <Anim
-      onAnim={(forwards, animIndex) => {
-        /* eslint-disable */
-        console.log('forwards ', forwards);
-        console.log('animIndex ', animIndex);
-        /* eslint-enable */
-      }}
-      fromStyle={{
-        opacity: 0,
-        transform: 'translate3d(0px, -100px, 0px)  scale(1) rotate(0deg)',
-      }}
-      toStyle={[
-        {
-          opacity: 1,
-          transform: 'translate3d(0px, 0px, 0px)  scale(1) rotate(0deg)',
-        },
-        {
-          opacity: 1,
-          transform: 'translate3d(0px, 0px, 0px) scale(1.6) rotate(-15deg)',
-        },
-        {
-          opacity: 1,
-          transform: 'translate3d(0px, 0px, 0px)  scale(0.8) rotate(0deg)',
-        },
-        {
-          opacity: 1,
-          transform: 'translate3d(0px, -200px, 0px)  scale(0.8) rotate(0deg)',
-        },
-        {
-          opacity: 1,
-          transform: 'translate3d(200px, 0px, 0px)  scale(0.8) rotate(0deg)',
-        },
-        {
-          opacity: 1,
-          transform: 'translate3d(0px, 200px, 0px)  scale(0.8) rotate(0deg)',
-        },
-        {
-          opacity: 1,
-          transform: 'translate3d(-200px, 0px, 0px)  scale(0.8) rotate(0deg)',
-        },
-      ]}
-      easing={'bounceOut'}
-      transitionDuration={500}
+  <Slide
+    data-id="react-under-the-hood"
+    id={5}
+    goTo={6}
+    transition={['zoom', 'slide']}
+    controlColor={tertiary}
+    progressColor={tertiary}
+  >
+    <Image src={images.reactUnderTheHood.replace('/', '')} />
+
+    <Link
+      href="https://bogdan-lyashenko.github.io/Under-the-hood-ReactJS/"
+      target="_blank"
     >
-      <div>
-        <Heading size={6} caps fit textColor="secondary">
-          Flexible<br />animations
-        </Heading>
-      </div>
-    </Anim>
+      <Text textAlign="center" textColor={gray} textFont="Fira Code">
+        bogdan-lyashenko.github.io
+      </Text>
+    </Link>
+
+    <Layout align="flex-start">
+      <Text
+        margin="1em 0"
+        textAlign="left"
+        textColor={secondary}
+        textSize="2em"
+      >
+        <Typeface googleFont="Open Sans Condensed">
+          Under the Hood ReactJS
+        </Typeface>
+
+        <Text textSize="0.5em">⭐️️️️️ ⭐️ ⭐</Text>
+      </Text>
+    </Layout>
   </Slide>
 );

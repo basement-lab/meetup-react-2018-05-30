@@ -8,7 +8,7 @@ import images from '../images';
 
 export default (
   <Slide
-    transition={['spin', 'zoom']}
+    transition={['slide']}
     bgColor="tertiary"
     controlColor="primary"
     progressColor="primary"
