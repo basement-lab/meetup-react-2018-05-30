@@ -1,9 +1,19 @@
 import React from 'react';
 import { Fill, Heading, Image, Layout, Link, Text } from 'spectacle';
+// import styled from 'react-emotion';
 
 import { gray, white } from '../theme';
 
 import OLD_LIFECYCLE from '../assets/react-lifecycle-old.jpg';
+
+/** ************************************************************************* */
+
+// const Span = styled('span')`
+//   font-family: 'Fira Code', monospace;
+//   text-transform: lowercase;
+//   vertical-align: center;
+//   margin-left: 0.25em;
+// `;
 
 /** ************************************************************************* */
 
@@ -20,14 +30,14 @@ export default class ReactLifecycleOld extends React.Component {
               textColor={white}
               textFont="Fira Code"
             >
-              &lt;16.3
+              Lifecycle &lt;16.3
             </Heading>
           </Fill>
         </Layout>
 
         <Layout>
           <Fill>
-            <Image src={OLD_LIFECYCLE} width="75%" />
+            <Image src={OLD_LIFECYCLE} width="70%" />
           </Fill>
         </Layout>
 

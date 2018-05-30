@@ -27,13 +27,12 @@ import {
 /** ************************************************************************* */
 
 const Container = styled(Layout)`
-  thead td {
-    font-size: 2.5em;
-  }
-
   td {
     border: 1px solid ${gray};
     padding: 0.5em 2em;
+  }
+  thead td {
+    font-size: 2.5em;
   }
 `;
 

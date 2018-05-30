@@ -20,7 +20,7 @@ export default class ReactLifecycleNew extends React.Component {
               textColor={white}
               textFont="Fira Code"
             >
-              &gt;=16.3
+              Lifecycle &gt;=16.3
             </Heading>
           </Fill>
         </Layout>
