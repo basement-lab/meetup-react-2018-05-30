@@ -5,10 +5,10 @@ import {
   Layout,
   TableBody,
   TableHeader,
-  TableHeaderItem,
+  TableHeaderItem as ThTd,
   TableItem,
-  TableRow,
-  Table,
+  TableRow as TR,
+  Table as T,
   Text,
 } from 'spectacle';
 import styled from 'react-emotion';
@@ -26,14 +26,52 @@ import {
 
 /** ************************************************************************* */
 
-const Container = styled(Layout)`
-  td {
-    border: 1px solid ${gray};
-    padding: 0.5em 2em;
-  }
+const symbolSize = '0.9em';
+
+/** ************************************************************************* */
+
+const Table = styled(T)`
+  padding: 1em 0 2em 0;
+
   thead td {
     font-size: 2.5em;
   }
+
+  tbody td {
+    border-top: 1px solid ${gray};
+    padding: 0.6em 2em;
+  }
+
+  tbody td:nth-of-type(2) {
+    border-left: 1px solid ${gray};
+    border-right: 1px solid ${gray};
+  }
+`;
+
+/** ************************************************************************* */
+
+const TableRow = styled(TR)`
+  td:nth-of-type(1) {
+    width: 50%;
+    text-align: right;
+    padding-right: 1em;
+  }
+  td:nth-of-type(3) {
+    width: 50%;
+    text-align: left;
+    padding-left: 1em;
+  }
+
+  td {
+    padding: 0.5em 2em;
+  }
+`;
+
+/** ************************************************************************* */
+
+const TableHeaderItem = styled(ThTd)`
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 `;
 
 /** ************************************************************************* */
@@ -42,7 +80,6 @@ const Small = styled('small')`
   font-family: 'Fira Code', monospace;
   text-transform: lowercase;
   vertical-align: center;
-  margin-left: 0.25em;
 `;
 
 /** ************************************************************************* */
@@ -51,34 +88,34 @@ export default class ReactLifecyclesCompare extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Container>
+        <Layout>
           <Fill>
             <Heading
               margin="0 0 1em 0"
-              size={4}
+              size={3}
               textColor={tertiary}
               lineHeight="1.2em"
             >
               Lifecycle API Side-by-Side
             </Heading>
           </Fill>
-        </Container>
+        </Layout>
         <Layout>
           <Fill>
             <Table bgColor={white}>
               <TableHeader>
                 <TableRow>
                   <TableHeaderItem>
-                    <Text caps margin="0.75em auto">
-                      old lifecycle <Small>&lt;v16.3</Small>
+                    <Text caps>
+                      old lifecycle&nbsp;&nbsp;<Small>&lt;v16.3</Small>
                     </Text>
                   </TableHeaderItem>
 
                   <TableHeaderItem />
 
                   <TableHeaderItem>
-                    <Text caps margin="auto auto 0.5em auto">
-                      new lifecycle <Small>&gt;=v16.3</Small>
+                    <Text caps>
+                      <Small>&gt;=v16.3</Small>&nbsp;&nbsp;new lifecycle
                     </Text>
                   </TableHeaderItem>
                 </TableRow>
@@ -98,7 +135,7 @@ export default class ReactLifecyclesCompare extends React.Component {
                       textFont="Fira Code"
                       textSize="0.8em"
                     >
-                      React.createElement
+                      React.createClass
                     </Text>
                   </TableItem>
 
@@ -120,7 +157,7 @@ export default class ReactLifecyclesCompare extends React.Component {
                       textFont="Fira Code"
                       textSize="0.8em"
                     >
-                      React.createElement
+                      React.createClass
                     </Text>
                   </TableItem>
 
@@ -138,7 +175,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text bold textColor={orange} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={orange}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       !=
                     </Text>
                   </TableItem>
@@ -160,7 +202,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text bold textColor={red} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={red}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       ✗
                     </Text>
                   </TableItem>
@@ -177,7 +224,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                     </Text>
                   </TableItem>
                   <TableItem>
-                    <Text bold textColor={green} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={green}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       ✅
                     </Text>
                   </TableItem>
@@ -198,7 +250,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                     </Text>
                   </TableItem>
                   <TableItem>
-                    <Text bold textColor={green} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={green}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       ✅
                     </Text>
                   </TableItem>
@@ -220,7 +277,11 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text textColor={red} textFont="Fira Code">
+                    <Text
+                      textColor={red}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       !==
                     </Text>
                   </TableItem>
@@ -243,7 +304,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text bold textColor={orange} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={orange}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       !=
                     </Text>
                   </TableItem>
@@ -267,7 +333,11 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text textColor={red} textFont="Fira Code">
+                    <Text
+                      textColor={red}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       !==
                     </Text>
                   </TableItem>
@@ -288,7 +358,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                     </Text>
                   </TableItem>
                   <TableItem>
-                    <Text bold textColor={green} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={green}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       ✅
                     </Text>
                   </TableItem>
@@ -311,7 +386,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text bold textColor={orange} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={orange}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       !=
                     </Text>
                   </TableItem>
@@ -333,7 +413,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text bold textColor={green} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={green}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       ✅
                     </Text>
                   </TableItem>
@@ -356,7 +441,12 @@ export default class ReactLifecyclesCompare extends React.Component {
                   </TableItem>
 
                   <TableItem>
-                    <Text bold textColor={red} textFont="Fira Code">
+                    <Text
+                      bold
+                      textColor={red}
+                      textFont="Fira Code"
+                      textSize={symbolSize}
+                    >
                       ✗
                     </Text>
                   </TableItem>

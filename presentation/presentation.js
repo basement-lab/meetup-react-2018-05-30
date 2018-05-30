@@ -1,19 +1,21 @@
 import React from 'react';
 import { Deck, Slide } from 'spectacle';
 
+import BasementLab from './slides/BasementLab.jsx';
 import React16dot0 from './slides/React16.0.jsx';
 import React16dot3 from './slides/React16.3.jsx';
 import React16WhatsNew from './slides/React16WhatsNew.jsx';
 import ReactFiber from './slides/ReactFiber.jsx';
 import ReactFiberIs from './slides/ReactFiberIs.jsx';
 import ReactFiberResources from './slides/ReactFiberResources.jsx';
+import ReactFiberWhatIsIt from './slides/ReactFiberWhatIsIt.jsx';
 import ReactLifecycleNew from './slides/ReactLifecycleNew.jsx';
 import ReactLifecycleOld from './slides/ReactLifecycleOld.jsx';
 import ReactLifecyclesCompare from './slides/ReactLifecyclesCompare.jsx';
 import ReactUnderTheHood from './slides/ReactUnderTheHood.jsx';
+import SaviSolutions from './slides/SaviSolutions.jsx';
 import Sigint from './slides/Sigint.jsx';
 import Sigterm from './slides/Sigterm.jsx';
-import WhatIsReactFiber from './slides/WhatIsReactFiber.jsx';
 
 import theme, { colors, transitions } from './theme';
 
@@ -24,6 +26,10 @@ require('normalize.css');
 /** ************************************************************************* */
 
 export default class Presentation extends React.Component {
+  state = {
+    steps: 0,
+  };
+
   render() {
     return (
       <Deck
@@ -47,6 +53,7 @@ export default class Presentation extends React.Component {
             transitions.rotate(colors.grayDark, colors.white),
             // transitions.rotate(colors.white, colors.tertiary),
           ]}
+          transitionDuration={500}
         >
           <Sigint />
         </Slide>
@@ -55,6 +62,33 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={1}
+          controlColor={colors.white}
+          bgDarken={0.65}
+          bgImage={BasementLab.Image}
+          getAnimStep={this.updateSteps}
+          progressColor={colors.gray}
+          transition={['slide']}
+          transitionDuration={300}
+        >
+          <BasementLab {...this.state} />
+        </Slide>
+
+        {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
+
+        <Slide
+          id={2}
+          controlColor={colors.grayDark}
+          progressColor={colors.gray}
+          transition={['fade']}
+          transitionDuration={300}
+        >
+          <SaviSolutions />
+        </Slide>
+
+        {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
+
+        <Slide
+          id={3}
           bgColor={colors.tertiary}
           bgPostition="center"
           transition={[
@@ -68,7 +102,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={2}
+          id={4}
           bgColor={colors.tertiary}
           controlColor={colors.gray}
           progressColor={colors.gray}
@@ -85,18 +119,18 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={3}
+          id={5}
           controlColor={colors.gray}
           progressColor={colors.gray}
           transition={['fade']}
         >
-          <WhatIsReactFiber />
+          <ReactFiberWhatIsIt />
         </Slide>
 
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={4}
+          id={6}
           bgColor={colors.tertiary}
           controlColor={colors.gray}
           progressColor={colors.gray}
@@ -108,7 +142,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={5}
+          id={7}
           controlColor={colors.tertiary}
           progressColor={colors.tertiary}
           transition={['slide', 'zoom']}
@@ -119,7 +153,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={6}
+          id={8}
           bgColor={colors.grayDark}
           controlColor={colors.secondary}
           progressColor={colors.white}
@@ -131,7 +165,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={7}
+          id={9}
           bgColor={colors.tertiary}
           transition={[
             'fade',
@@ -144,7 +178,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={8}
+          id={10}
           bgColor={colors.tertiary}
           controlColor={colors.gray}
           progressColor={colors.gray}
@@ -159,7 +193,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={9}
+          id={11}
           bgColor={colors.black}
           controlColor={colors.tertiary}
           progressColor={colors.gray}
@@ -171,7 +205,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={10}
+          id={12}
           bgColor={colors.tertiary}
           controlColor={colors.gray}
           progressColor={colors.gray}
@@ -183,8 +217,8 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={11}
-          bgColor={colors.grayDark}
+          id={13}
+          bgColor={colors.white}
           controlColor={colors.gray}
           progressColor={colors.gray}
           transition={['slide']}
@@ -195,7 +229,7 @@ export default class Presentation extends React.Component {
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
         <Slide
-          id={12}
+          id={14}
           bgColor={colors.white}
           controlColor={colors.tertiary}
           transition={['fade']}
@@ -205,4 +239,10 @@ export default class Presentation extends React.Component {
       </Deck>
     );
   }
+
+  updateSteps = steps => {
+    if (this.state.steps !== steps) {
+      this.setState({ steps });
+    }
+  };
 }

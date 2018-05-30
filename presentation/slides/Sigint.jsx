@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Image, Link, Text } from 'spectacle';
+import { Heading, Image, Link, Notes, Text } from 'spectacle';
 import styled from 'react-emotion';
 
 import { black } from '../theme';
@@ -22,6 +22,7 @@ export default class Sigint extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Notes>First. A little about me...</Notes>
         <Heading caps size={1} lineHeight={1} textColor={black}>
           What&apos;s new
         </Heading>
@@ -42,7 +43,7 @@ export default class Sigint extends React.Component {
         >
           <Text caps fit size={4} textColor={black} textFont="Fira Code">
             <Img src={GITHUB_ICON} margin="0 0 -0.5em 0" display="inline" />
-            {'/basementlab/meetup-react-2018-05-30'}
+            {'/basement-lab/meetup-react-2018-05-30'}
           </Text>
         </Link>
       </React.Fragment>

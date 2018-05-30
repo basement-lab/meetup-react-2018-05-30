@@ -89,20 +89,20 @@ export default class ReactFiberResources extends React.Component {
               </Link>
 
               <Link
-                href="https://www.slideshare.net/sabativi/react-fiber"
-                target="_blank"
-              >
-                <ListItem margin="0.5em" textColor={white} textSize="1em">
-                  [Slideshare] sabativi - react-fiber
-                </ListItem>
-              </Link>
-
-              <Link
                 href="https://github.com/acdlite/react-fiber-architecture"
                 target="_blank"
               >
                 <ListItem margin="0.5em" textColor={white} textSize="1em">
                   github.com/acdlite/react-fiber-architecture
+                </ListItem>
+              </Link>
+
+              <Link
+                href="https://www.slideshare.net/sabativi/react-fiber"
+                target="_blank"
+              >
+                <ListItem margin="0.5em" textColor={white} textSize="1em">
+                  [Slideshare] sabativi - react-fiber
                 </ListItem>
               </Link>
             </List>

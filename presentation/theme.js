@@ -14,9 +14,9 @@ export const orange = '#ffa500' /* orange */;
 export const purple = '#800080' /* purple */;
 export const red = '#dc143c' /* crimson */;
 export const title = '#2b2b2b';
-// export const title = 'rgb(0, 0, 0, 0.9)';
-export const yellow = '#ff0' /* yellow */;
+export const translucent = 'rgb(0,0,0,0.5)';
 export const white = '#fff';
+export const yellow = '#ff0' /* yellow */;
 
 /** ************************************************************************* */
 
@@ -28,8 +28,9 @@ export const colors = {
   gray,
   grayDark,
   green,
-  white,
   title,
+  translucent,
+  white,
   yellow,
 };
 
