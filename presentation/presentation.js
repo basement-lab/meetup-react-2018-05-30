@@ -29,24 +29,24 @@ export default class Presentation extends React.Component {
       <Deck
         contentHeight="90%"
         contentWidth="90%"
+        theme={theme}
         // transition={['zoom', 'slide']}
         transition={['slide']}
-        theme={theme}
         transitionDuration={1000}
       >
         <Slide
           id={0}
-          transition={[
-            'zoom',
-            transitions.rotate(colors.grayDark, colors.white),
-            // transitions.rotate(colors.white, colors.tertiary),
-          ]}
           bgColor={colors.white}
           bgImage={REACT_ICON}
           bgPostition="center"
           bgRepeat="no-repeat"
           controlColor={colors.tertiary}
           progressColor={colors.gray}
+          transition={[
+            'zoom',
+            transitions.rotate(colors.grayDark, colors.white),
+            // transitions.rotate(colors.white, colors.tertiary),
+          ]}
         >
           <Sigint />
         </Slide>
@@ -98,9 +98,9 @@ export default class Presentation extends React.Component {
         <Slide
           id={4}
           bgColor={colors.tertiary}
-          transition={['slide']}
           controlColor={colors.gray}
           progressColor={colors.gray}
+          transition={['slide']}
         >
           <ReactFiberIs />
         </Slide>
@@ -109,9 +109,9 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={5}
-          transition={['slide', 'zoom']}
           controlColor={colors.tertiary}
           progressColor={colors.tertiary}
+          transition={['slide', 'zoom']}
         >
           <ReactUnderTheHood />
         </Slide>
@@ -120,10 +120,10 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={6}
-          transition={['zoom']}
           bgColor={colors.grayDark}
           controlColor={colors.secondary}
           progressColor={colors.white}
+          transition={['zoom']}
         >
           <ReactFiberResources />
         </Slide>
@@ -160,10 +160,10 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={9}
-          transition={['spin', 'zoom']}
           bgColor={colors.black}
           controlColor={colors.tertiary}
           progressColor={colors.gray}
+          transition={['spin', 'zoom']}
         >
           <ReactLifecycleOld />
         </Slide>
@@ -172,10 +172,10 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={10}
-          transition={['spin', 'zoom']}
           bgColor={colors.tertiary}
           controlColor={colors.gray}
           progressColor={colors.gray}
+          transition={['spin', 'zoom']}
         >
           <ReactLifecycleNew />
         </Slide>
@@ -184,17 +184,22 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={11}
-          transition={['slide']}
           bgColor={colors.grayDark}
           controlColor={colors.gray}
           progressColor={colors.gray}
+          transition={['slide']}
         >
           <ReactLifecyclesCompare />
         </Slide>
 
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
-        <Slide bgColor={colors.white}>
+        <Slide
+          id={12}
+          bgColor={colors.white}
+          controlColor={colors.tertiary}
+          transition={['fade']}
+        >
           <Sigterm />
         </Slide>
       </Deck>
