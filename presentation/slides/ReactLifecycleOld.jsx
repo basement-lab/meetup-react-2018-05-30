@@ -27,7 +27,7 @@ export default class ReactLifecycleOld extends React.Component {
 
         <Layout>
           <Fill>
-            <Image src={OLD_LIFECYCLE} width="85%" />
+            <Image src={OLD_LIFECYCLE} width="75%" />
           </Fill>
         </Layout>
 
