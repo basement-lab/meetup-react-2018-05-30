@@ -1,11 +1,8 @@
 import React from 'react';
 import {
+  Fill,
   Heading,
-  Image,
   Layout,
-  Link,
-  Slide,
-  SlideSet,
   TableBody,
   TableHeader,
   TableHeaderItem,
@@ -13,36 +10,23 @@ import {
   TableRow,
   Table,
   Text,
-  Typeface,
 } from 'spectacle';
 import styled from 'react-emotion';
 
-import images from '../images';
 import {
-  primary,
-  secondary,
   tertiary,
   black,
   gray,
-  grayDark,
   green,
   orange,
   purple,
   red,
-  yellow,
   white,
 } from '../theme';
 
 /** ************************************************************************* */
 
-const Container = styled('div')`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-
-  font-size: 1.2em;
-  margin-top: 2.5%;
-
+const Container = styled(Layout)`
   thead td {
     font-size: 2.5em;
   }
@@ -56,68 +40,47 @@ const Container = styled('div')`
 /** ************************************************************************* */
 
 const Small = styled('small')`
+  font-family: 'Fira Code', monospace;
   text-transform: lowercase;
+  vertical-align: center;
+  margin-left: 0.25em;
 `;
 
 /** ************************************************************************* */
 
-export default (
-  <SlideSet data-id="react-lifecycle-changes" id={9} goTo={10}>
-    <Slide
-      data-id="old-react-lifecycle"
-      transition={['spin', 'zoom']}
-      bgColor={black}
-      controlColor={tertiary}
-      progressColor={gray}
-    >
-      <Image src={images.reactLifecycleOld.replace('/', '')} />
-
-      <Link
-        href="https://twitter.com/dan_abramov/status/981712092611989509"
-        target="_blank"
-      >
-        <Text margin="2em 0 0 0" size={4} textColor={gray} textFont="Fira Code">
-          @sstur_
-        </Text>
-      </Link>
-    </Slide>
-
-    <Slide
-      data-id="lifecycle-changes"
-      transition={['slide']}
-      bgColor={grayDark}
-      controlColor={secondary}
-      progressColor={gray}
-    >
-      <Container>
-        <div>
-          <Heading
-            fill
-            margin="0 0 1em 0"
-            size={4}
-            textColor={tertiary}
-            lineHeight="1.2em"
-          >
-            Side-by-Side
-            <br />
-            of
-            <br />
-            Lifecycle API&apos;s
-          </Heading>
-          <Layout>
+export default class ReactLifecyclesCompare extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Container>
+          <Fill>
+            <Heading
+              margin="0 0 1em 0"
+              size={4}
+              textColor={tertiary}
+              lineHeight="1.2em"
+            >
+              Lifecycle API Side-by-Side
+            </Heading>
+          </Fill>
+        </Container>
+        <Layout>
+          <Fill>
             <Table bgColor={white}>
               <TableHeader>
                 <TableRow>
                   <TableHeaderItem>
-                    <Text caps>
-                      old lifecycle <Small>(&lt; v16.3)</Small>
+                    <Text caps margin="0.75em auto">
+                      old lifecycle <Small>&lt;v16.3</Small>
                     </Text>
                   </TableHeaderItem>
 
                   <TableHeaderItem />
 
                   <TableHeaderItem>
-                    <Text caps>new lifecycle</Text>
+                    <Text caps margin="auto auto 0.5em auto">
+                      new lifecycle <Small>&gt;=v16.3</Small>
+                    </Text>
                   </TableHeaderItem>
                 </TableRow>
               </TableHeader>
@@ -403,27 +366,9 @@ export default (
                 </TableRow>
               </TableBody>
             </Table>
-          </Layout>
-        </div>
-      </Container>
-    </Slide>
-    <Slide
-      data-id="new-react-lifecycle"
-      transition={['spin', 'zoom']}
-      bgColor={black}
-      controlColor={tertiary}
-      progressColor={gray}
-    >
-      <Image src={images.reactLifecycleNew.replace('/', '')} />
-
-      <Link
-        href="https://twitter.com/dan_abramov/status/981712092611989509"
-        target="_blank"
-      >
-        <Text margin="2em 0 0 0" size={4} textColor={gray} textFont="Fira Code">
-          @dan_abramov
-        </Text>
-      </Link>
-    </Slide>
-  </SlideSet>
-);
+          </Fill>
+        </Layout>
+      </React.Fragment>
+    );
+  }
+}

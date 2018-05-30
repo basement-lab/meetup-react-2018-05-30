@@ -16,23 +16,21 @@
         "url": "https://github.com/derekclair/demo_whats-new-in-react16.git"
     },
     "scripts": {
-        "reset": "yarn reset:slides && yarn reset:examples",
+        "reset": "yarn reset:slides && yarn reset:examples && yarn reset:root",
         "reset:examples": "rm -rf examples/*/node_modules examples/*/yarn.lock",
         "reset:root": "rm -rf node_modules yarn.lock",
-        "reset:slides": "cd slides && rm -rf node_modules yarn.lock",
+        "reset:slides": "cd presentation && rm -rf node_modules yarn.lock",
         "start":
             "echo \"you must specify which you'd like to start; 'new' | 'old' | 'slides'\"",
-        "start:new": "cd examples/new-context && yarn start",
-        "start:old": "cd examples/old-context && yarn start",
-        "start:slides": "cd slides && yarn start"
+        "start:presentation": "cd presentation && yarn start"
     },
     "engines": {
         "yarn": ">=1.5"
     },
     "workspaces": [
-        "presentation",
         "examples/new-context",
-        "examples/old-context"
+        "examples/old-context",
+        "presentation"
     ],
     "devDependencies": {
         "babel-cli": "^6.26.0",

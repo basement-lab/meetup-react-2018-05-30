@@ -1,5 +1,5 @@
 {
-  "name": "slides",
+  "name": "presentation",
   "version": "1.0.1",
   "description": "ReactJS Powered Presentation Framework",
   "homepage": "https://github.com/FormidableLabs/spectacle-boilerplate",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",

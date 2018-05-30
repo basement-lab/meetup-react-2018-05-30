@@ -20,14 +20,40 @@ export const white = '#fff';
 
 /** ************************************************************************* */
 
-export default createTheme({
+export const colors = {
   primary,
   secondary,
   tertiary,
   black,
   gray,
+  grayDark,
   green,
   white,
   title,
   yellow,
-});
+};
+
+/** ************************************************************************* */
+
+export const transitions = {
+  rotate: (startBackgroundColor, endBackgroundColor) => (
+    transitioning,
+    forward,
+  ) => {
+    const angle = forward ? -180 : 180;
+
+    return {
+      transform: `
+        translate3d(0%, ${transitioning ? 100 : 0}%, 0)
+        rotate(${transitioning ? angle : 0}deg)
+      `,
+      backgroundColor: transitioning
+        ? startBackgroundColor || white
+        : endBackgroundColor || tertiary,
+    };
+  },
+};
+
+/** ************************************************************************* */
+
+export default createTheme(colors);
