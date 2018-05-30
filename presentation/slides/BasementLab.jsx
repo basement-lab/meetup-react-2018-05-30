@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Appear, Heading, Image, Layout, Link, Notes, Text } from 'spectacle';
+import { Appear, Heading, Link, Notes, Text } from 'spectacle';
 import styled from 'react-emotion';
 
 import { colors } from '../theme';
