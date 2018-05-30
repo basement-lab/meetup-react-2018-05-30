@@ -1,8 +1,9 @@
 import React from 'react';
 import { Image, Layout, Link, Notes, Text, Typeface } from 'spectacle';
 
-import images from '../images';
 import { secondary, gray } from '../theme';
+
+import UNDER_THE_HOOD from '../assets/react-under-the-hood.svg';
 
 /** ************************************************************************* */
 
@@ -14,7 +15,7 @@ export default class ReactUnderTheHood extends React.Component {
           I believe that Fiber is the foundational to the upcoming asynchronous
           rendering in React.
         </Notes>
-        <Image src={images.reactUnderTheHood.replace('/', '')} />
+        <Image src={UNDER_THE_HOOD} />
 
         <Link
           href="https://bogdan-lyashenko.github.io/Under-the-hood-ReactJS/"
