@@ -18,6 +18,7 @@ module.exports = env => ({
     main: [
       'babel-polyfill',
       path.resolve(__dirname, 'src'),
+      'webpack-hot-middleware/client?reload=true&quiet=true',
     ],
   },
   mode: NODE_ENV,
