@@ -1,8 +1,10 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const path = require('path');
 const webpack = require('webpack');
+const webpackServeWaitpage = require('webpack-serve-waitpage');
 
 const { NODE_ENV = 'development' } = process.env;
 
@@ -11,12 +13,13 @@ module.exports = env => ({
   context: path.resolve(__dirname),
   devtool: 'inline-source-map',
   // entry: './src/index.js',
-  entry: path.resolve(__dirname, 'src'),
-  // entry: [
-  //   // 'babel-polyfill',
-  //   path.resolve(__dirname, 'src'),
-  //   // 'webpack-hot-middleware/client?reload=true&quiet=true&noInfo=true&overlay=false',
-  // ],
+  // entry: path.resolve(__dirname, 'src'),
+  entry: {
+    main: [
+      'babel-polyfill',
+      path.resolve(__dirname, 'src'),
+    ],
+  },
   mode: NODE_ENV,
   module: {
     strictExportPresence: true,
@@ -59,10 +62,10 @@ module.exports = env => ({
             use: [
               {
                 loader: 'html-loader',
-                // options: {
-                //   minimize: !!env.prod,
-                //   removeComments: !!env.prod,
-                // },
+                options: {
+                  minimize: !!env.prod,
+                  removeComments: !!env.prod,
+                },
               },
             ],
           },
@@ -90,8 +93,7 @@ module.exports = env => ({
   output: {
     path: path.join(__dirname, 'dist'),
     pathinfo: true,
-    filename: 'bundle.js',
-    // filename: '[name].js',
+    filename: '[name].js',
     chunkFilename: 'chunk-[id].[name].js',
     sourceMapFilename: '[name].js.map',
     publicPath: '/',
@@ -134,16 +136,49 @@ module.exports = env => ({
     },
     extensions: ['.ts', '.tsx', '.js', '.json', '.graphql'],
     symlinks: false,
-  } /* END: resolve */,
+  },
   serve: {
+    add: (app, middleware, options) => {
+      app.use(webpackServeWaitpage(options)); // * Be sure to pass the options argument from the arguments
+
+      // Make sure the usage of webpack-serve-waitpage will be before the following commands if exists
+      // middleware.webpack();
+      // middleware.content()
+    },
     content: path.join(__dirname, './public'),
     clipboard: false,
-    logLevel: 'warn', // defaults to 'info' and it's noisy
+    dev: {
+      clientLogLevel:
+        'none' /* 'none' | 'warning' | 'error' | 'info' (default) */,
+      compress: true,
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
+      stats: {
+        assets: true,
+        // children: true /* (default: false) */,
+        chunks: false,
+        colors: true,
+        env: true,
+        entrypoints: true,
+        errors: false,
+        modules: false,
+        performance: true,
+        publicPath: true /* (default: false) */,
+        source: true,
+        warnings: false,
+      },
+    },
+    // host: '0.0.0.0',
     hot: {
       hot: true,
       logLevel: 'warn', // defaults to 'info' and it's noisy
       reload: true,
     },
+    // http2: true,
+    logLevel: 'warn', // defaults to 'info' and it's noisy
+    port: 3000,
   },
   target: 'web',
 });

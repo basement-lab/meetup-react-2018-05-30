@@ -19,13 +19,14 @@
         "pretty": true,
         "removeComments": true,
         "rootDir": "src",
-        "typeRoots": ["node_modules/@types"],
         "skipLibCheck": true,
         "sourceMap": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "target": "es5"
+        "target": "es5",
+        "typeRoots": ["typings", "node_modules/@types"]
     },
     "exclude": ["node_modules", "dist", "out"],
-    "files": ["src/index.tsx"]
+    "files": ["src/index.tsx"],
+    "include": ["./typings/global.d.ts"]
 }

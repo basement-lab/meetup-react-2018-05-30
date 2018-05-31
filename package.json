@@ -52,5 +52,13 @@
         "stylelint-config-prettier": "^3.2.x",
         "stylelint-config-recommended": "^2.1.0",
         "webpack": "^4.8.3"
-    }
+    },
+    "keywords": [
+        "yarn workspaces",
+        "typescript",
+        "react",
+        "webpack",
+        "webpack-serve",
+        "hot module reload"
+    ]
 }
