@@ -10,8 +10,13 @@ module.exports = env => ({
   bail: true,
   context: path.resolve(__dirname),
   devtool: 'inline-source-map',
+  // entry: './src/index.js',
   entry: path.resolve(__dirname, 'src'),
   // entry: [
+  //   // 'babel-polyfill',
+  //   path.resolve(__dirname, 'src'),
+  //   // 'webpack-hot-middleware/client?reload=true&quiet=true&noInfo=true&overlay=false',
+  // ],
   mode: NODE_ENV,
   module: {
     strictExportPresence: true,
