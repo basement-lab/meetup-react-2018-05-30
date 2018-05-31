@@ -3,6 +3,7 @@ import { Deck, Slide } from 'spectacle';
 
 import BasementLab from './slides/BasementLab.jsx';
 import ContextLegacyAPI from './slides/ContextLegacyAPI.jsx';
+// import ContextOldExample from './slides/ContextOldExample.jsx';
 import ContextWhoUsesIt from './slides/ContextWhoUsesIt.jsx';
 import React16dot0 from './slides/React16.0.jsx';
 import React16dot3 from './slides/React16.3.jsx';
@@ -181,7 +182,7 @@ export default class Presentation extends React.Component {
 
         <Slide
           id={10}
-          bgColor={colors.tertiary}
+          bgColor={colors.white}
           controlColor={colors.gray}
           progressColor={colors.gray}
           transition={[
@@ -239,6 +240,17 @@ export default class Presentation extends React.Component {
         >
           <ContextWhoUsesIt />
         </Slide>
+
+        {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
+
+        {/* <Slide
+          id={15}
+          bgColor="primary"
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+        >
+          <ContextOldExample />
+        </Slide> */}
 
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  */}
 
