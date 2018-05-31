@@ -1,8 +1,7 @@
 {
     "name": "whats-new-in-react16",
     "version": "0.1.0",
-    "description":
-        "What's new in React 16.3+, for ReactJS Utah Meetup May 30, 2018",
+    "description": "What's new in React 16.3+, for ReactJS Utah Meetup May 30, 2018",
     "homepage": "https://www.meetup.com/ReactJS-Utah/events/250815359/",
     "license": "MIT",
     "private": true,
@@ -16,18 +15,19 @@
         "url": "https://github.com/derekclair/demo_whats-new-in-react16.git"
     },
     "scripts": {
-        "reset": "yarn reset:slides && yarn reset:examples && yarn reset:root",
+        "reset": "yarn reset:slides && yarn reset:examples && yarn reset:app && yarn reset:root",
+        "reset:app": "rm -rf app/node_modules yarn.lock",
         "reset:examples": "rm -rf examples/*/node_modules examples/*/yarn.lock",
         "reset:root": "rm -rf node_modules yarn.lock",
         "reset:slides": "cd presentation && rm -rf node_modules yarn.lock",
-        "start":
-            "echo \"you must specify which you'd like to start; 'new' | 'old' | 'slides'\"",
+        "start": "echo \"you must specify which you'd like to start; 'new' | 'old' | 'slides'\"",
         "start:presentation": "cd presentation && yarn start"
     },
     "engines": {
         "yarn": ">=1.5"
     },
     "workspaces": [
+        "app",
         "examples/new-context",
         "examples/old-context",
         "presentation"

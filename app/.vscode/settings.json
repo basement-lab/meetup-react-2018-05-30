@@ -1,0 +1,11 @@
+{
+    /* ********************************************************************** */
+    // "tslint.autoFixOnSave": true,
+    // "tslint.enable": false,
+    "tslint.nodePath": "/usr/local/opt/asdf/shims/node"
+
+    /* ********************************************************************** */
+    // "typescript.implementationsCodeLens.enabled": true,
+    // "typescript.referencesCodeLens.enabled": true,
+    // "typescript.tsdk": "./node_modules/typescript/lib",
+}
