@@ -12,8 +12,6 @@ module.exports = env => ({
   bail: true,
   context: path.resolve(__dirname),
   devtool: 'inline-source-map',
-  // entry: './src/index.js',
-  // entry: path.resolve(__dirname, 'src'),
   entry: {
     main: [
       'babel-polyfill',
